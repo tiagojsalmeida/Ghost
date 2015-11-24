@@ -48,7 +48,6 @@ var _              = require('lodash'),
             watch: {
                 livereload: {
                     files: [
-                        'content/themes/kibosh/assets/css/*.css',
                         'content/themes/kibosh/assets/js/*.js',
                         'content/themes/kibosh/**.hbs',
                         'core/built/assets/*.js',
@@ -56,7 +55,8 @@ var _              = require('lodash'),
                     ],
                     tasks:  ['express:dev'],
                     options: {
-                        spawn: false
+                        spawn: false,
+                        atBegin: true
                     }
                 },
                 express: {
@@ -71,6 +71,21 @@ var _              = require('lodash'),
                     tasks: ['shell:csscombfix'],
                     options: {
                         livereload: false
+                    }
+                },
+                less: {
+                    files: ['content/themes/kibosh/assets/less/**.less'],
+                    tasks: ['less', 'express:dev'],
+                    options: {
+                        livereload: false,
+                        atBegin: true
+                    }
+                }
+            },
+            less: {
+                compile: {
+                    files: {
+                        "content/themes/kibosh/assets/css/main.css" : "content/themes/kibosh/assets/less/main.less"
                     }
                 }
             },

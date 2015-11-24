@@ -1,9 +1,16 @@
-<nav class="pagination" role="navigation">
-    {{#if prev}}
-        <a class="newer-posts" href="{{page_url prev}}">&larr; Newer Posts</a>
-    {{/if}}
-    <span class="page-number">Page {{page}} of {{pages}}</span>
-    {{#if next}}
-        <a class="older-posts" href="{{page_url next}}">Older Posts &rarr;</a>
-    {{/if}}
-</nav>
+{{#cond prev '||' next}}
+    <article class="read-next-story pagination-container{{#cond prev '&&' next}} with-both{{/cond}}" role="navigation">
+    <section class="post">
+        {{#if prev}}
+            <a class="newer page" href="{{page_url prev}}">Newer Posts</a>
+        {{/if}}
+        {{#if next}}
+            <a class="older page" href="{{page_url next}}">Older Posts</a>
+        {{/if}}
+
+        <small class="page-number">
+            Page {{page}} of {{pages}}
+        </small>
+    </section>
+</article>
+{{/cond}}

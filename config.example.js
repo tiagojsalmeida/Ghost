@@ -3,6 +3,9 @@
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
 
+//Add kibosh template helpers
+//require('./content/themes/kibosh/assets/js/helpers.js')();
+
 var path = require('path'),
     config;
 

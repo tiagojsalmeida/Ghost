@@ -48,13 +48,15 @@ var _              = require('lodash'),
             watch: {
                 livereload: {
                     files: [
-                        'content/themes/casper/assets/css/*.css',
-                        'content/themes/casper/assets/js/*.js',
+                        'content/themes/kibosh/assets/css/*.css',
+                        'content/themes/kibosh/assets/js/*.js',
+                        'content/themes/kibosh/**.hbs',
                         'core/built/assets/*.js',
                         'core/client/dist/index.html'
                     ],
+                    tasks:  ['express:dev'],
                     options: {
-                        livereload: true
+                        spawn: false
                     }
                 },
                 express: {
@@ -68,7 +70,7 @@ var _              = require('lodash'),
                     files: ['core/client/app/styles/**/*.css'],
                     tasks: ['shell:csscombfix'],
                     options: {
-                        livereload: true
+                        livereload: false
                     }
                 }
             },

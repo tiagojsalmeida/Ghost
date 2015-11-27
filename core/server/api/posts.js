@@ -45,6 +45,7 @@ posts = {
         if (options && options.context && (options.context.user || options.context.internal)) {
             extraOptions.push('staticPages');
         }
+
         permittedOptions = utils.browseDefaultOptions.concat(extraOptions);
 
         /**
@@ -54,6 +55,7 @@ posts = {
          * @returns {Object} options
          */
         function modelQuery(options) {
+            if(options && options.filter && options.filter === "tags:post-archive" ) options.limit = 0;
             return dataProvider.Post.findPage(options);
         }
 

@@ -40,6 +40,14 @@ posts = {
             permittedOptions = utils.browseDefaultOptions.concat(extraOptions),
             tasks;
 
+        // Workaround to remove static pages from results
+        // TODO: rework after https://github.com/TryGhost/Ghost/issues/5151
+        if (options && options.context && (options.context.user || options.context.internal)) {
+            extraOptions.push('staticPages');
+        }
+
+        permittedOptions = utils.browseDefaultOptions.concat(extraOptions);
+
         /**
          * ### Model Query
          *  Make the call to the Model layer
@@ -47,6 +55,7 @@ posts = {
          * @returns {Object} options
          */
         function modelQuery(options) {
+            if(options && options.filter && options.filter === "tags:post-archive" ) options.limit = 0;
             return dataProvider.Post.findPage(options);
         }
 

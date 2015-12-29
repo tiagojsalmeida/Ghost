@@ -119,7 +119,8 @@ function getStructuredData(metaData) {
 
     structuredData = {
         'og:site_name': metaData.title,
-        'og:type': metaData.ogType,
+        //'og:type': metaData.ogType,
+        'og:type': 'video.other',
         'og:title': metaData.metaTitle,
         'og:description': metaData.metaDescription,
         'og:url': metaData.url,

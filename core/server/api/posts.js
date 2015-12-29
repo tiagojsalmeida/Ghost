@@ -55,7 +55,7 @@ posts = {
          * @returns {Object} options
          */
         function modelQuery(options) {
-            if(options && options.filter && options.filter === "tags:archive-tag" ) options.limit = 0;
+            if(options && options.tag && options.tag === "archive-tag" ) options.limit = 0;
             return dataProvider.Post.findPage(options);
         }
 

@@ -23,6 +23,9 @@ tags = function (options) {
         output = '';
 
     function createTagList(tags) {
+        tags = _.filter(tags, function(tag){
+            return tag.slug != 'archive-tag';
+        });
         var tagNames = _.pluck(tags, 'name');
 
         if (autolink) {

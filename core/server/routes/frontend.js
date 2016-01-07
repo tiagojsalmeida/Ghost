@@ -82,11 +82,11 @@ frontendRoutes = function frontendRoutes(middleware) {
     router.get('/' + routeKeywords.preview + '/:uuid', frontend.preview);
 
     router.get('/about', function(req, res, next) {
-        res.redirect('http://' + req.headers.host + subdir + '/author/me', 301);
+        res.redirect( subdir + '/author/me', 301 );
     });
 
     router.get('/archive', function(req, res, next) {
-        res.redirect('http://' + req.headers.host + subdir + '/tag/archive-tag', 301);
+        res.redirect( subdir + '/tag/archive-tag', 301 );
     });
 
     // Default
